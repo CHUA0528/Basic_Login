@@ -21,15 +21,40 @@ function login(username,password){
     })*/
 
     let matched=users.find(element=>element.username==username)
-    if(matched){
-        if(matched.password==password){
+    if(matched)
+    {
+        if(matched.password==password)
+        {
             return matched
-        }else{
+        }
+        else
+        {
             return "Password not matched"
         }
-    }else{
+    }
+    else
+    {
         return "Username not found"
     }
 }
 
-console.log(login("hello","1355"))
+function register(newusername,newpassword,newname,newemail){
+    //To do:Check
+    let found=users.find(element=>element.username==newusername) 
+    if (found)
+    {
+        return "username is exist"
+
+    }
+
+    users.push({
+        username: newusername,
+        password:newpassword,
+        name:newname,
+        email:newemail
+    })
+}
+
+//console.log(login("hello","1355"))
+register("ccf","123","fei","hui@gmail.com")
+console.log(register("ccf","123","fei","hui@gmail.com"))
